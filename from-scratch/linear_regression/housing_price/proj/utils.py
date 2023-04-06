@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import math
 
-def load_data(path: str):
+def load_data(path, features):
   '''
     Return:
       train_data
@@ -20,7 +20,9 @@ def load_data(path: str):
   print(f"{len(train_df)}, {len(test_df)}")
 
   # Choose features, 
-  features = ['bedrooms', 'bathrooms']
+  # At now, only select columns have a number.
+#features = ['bedrooms', 'bathrooms', 'sqft_living', 'sqft_log', 'floors', 'waterfront', 'view', 
+#              'condition', 'sqft_above', 'sqft_basement', 'yr_built', 'yr_renovated']
   target = ['price']
 
   train_data = train_df.loc[:,features]
@@ -42,3 +44,15 @@ def load_data(path: str):
   test_label = test_label.to_numpy()
 
   return (train_data, train_label, test_data, test_label)
+
+def plot_features(data, label, features):  
+#xcount = 2
+#ycount = math.floor(len(features) / 2)
+#fig, ax = plt.subplots(xcount, ycount, figsize=(15, 5))
+  fig, ax = plt.subplots(1, len(features), figsize=(20, 5))
+#print(len(ax[0,:]))
+  for i in range(len(ax)):
+    ax[i].scatter(data[:,i], label)
+    ax[i].set_xlabel(features[i])
+  plt.show()
+ 
