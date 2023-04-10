@@ -106,6 +106,41 @@ too small? : so slow!!
 too large? : not be convergence well!
 TODO: Also make a graph with different learning rate. (x-axis: parameters, y-axis: cost)
 
+
+* Classification
+vs linear regression
+
+logistic regression
+either 0 or 1
+linear regression is not sufficient for classfication problem.
+let's look at the simple graph.
+
+the probability!!!
+if f(x) = 0.7
+70% change that y, f(x) is 1
+P(y=0) + P(y=1) = 1
+
+if z >= 0, y = 1
+else y = 0
+
+* decision boundary
+g_z = g(w1x1 + w2x2 + b)
+z = w_vec * x_vec + b = 0
+if w1=1, w2=1, b=3
+z = x1+x2+3 = 0
+
+* cost function of the logistic regression
+- Compare with the loss function.
+c = sum(0->m) of loss / m
+loss(L) is for single example
+if y[i] = 1, -log(f(x[i]))
+if y[i] = 0, -log(1-f(x[i]))
+** Think within a graph.
+
+so the loss function L is
+Loss(f(x[i], y[i]) = (-y[i] * log(f(x[i]))) - (1-y[i]) * log(1-f(x[i]))
+
+
 - why machine learning?
 
 - linear regression(one variable)
@@ -113,10 +148,8 @@ TODO: Also make a graph with different learning rate. (x-axis: parameters, y-axi
   
   - Prediction
   - make a model
-
   - Evaluate
     - cost function
-
   - Train(Learning)
     - gradient descent
     - pyplot graph
