@@ -1,7 +1,9 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-np.set_printoptions(precision=3)
+# WARNING!!
+# It's not good at debugging...
+#np.set_printoptions(precision=3)
 
 def sigmoid(z):
   return 1 / (1 + np.exp(-z))
@@ -63,6 +65,56 @@ def compute_cost(x_train, y_train, w, b):
   cost = -cost / m
   return cost
 
+def compute_gradient(x_train, y_train, w, b):
+  '''
+    Parameters
+      x_train (m, n)
+      y_train (m, 1)
+      w (n, 1)
+      b (m, 1)
+    Returns
+      dj_dw (n, 1)
+      dj_db (scalar)
+  '''
+  m, n = x_train.shape
+  dj_dw = np.zeros(n)
+  dj_db = 0
+  for i in range(m):
+    z = np.dot(x_train[i], w) + b
+    err = sigmoid(z) - y_train[i]
+    for j in range(n):
+      dj_dw[j] += err * x_train[i, j]
+    dj_db += err 
+  dj_dw /= m
+  dj_db /= m
+
+  return (dj_dw, dj_db)
+
+def gradient_descent(x_train, y_train, w_init, b_init, alpha, steps):
+  '''
+    Parameters
+      x_train (m, n)
+      y_train (m, 1)
+      w (n, 1)
+      b (m, 1)     
+      alpha (scalar) : learning rate
+      steps (scalar) : epochs
+
+    Retruns:
+      w (n, 1)
+      b (scalar)
+  '''
+  w, b = w_init, b_init 
+  for i in range(steps):
+    dj_dw, dj_db = compute_gradient(x_train, y_train, w, b)
+    w -= (alpha * dj_dw)
+    b -= (alpha * dj_db)
+    c = compute_cost(x_train, y_train, w, b)
+    if i % 1000 == 0:
+      print(f'{i} === {c}')
+
+  return (w, b)
+
 x_train = np.array([[0.5, 1.5], 
                     [1, 1], 
                     [1.5, 0.5], 
@@ -78,4 +130,11 @@ w = np.array([1, 1])
 b = -4
 c = compute_cost(x_train, y_train, w, b)
 print(f'{c}')
-show_decision_boundary(x_train, y_train, w, b)
+#show_decision_boundary(x_train, y_train, w, b)
+
+w_init = np.array([1., 1.])
+b_init = 1.
+alpha = 1e-1
+steps = 10000
+w_final, b_final = gradient_descent(x_train, y_train, w_init, b_init, alpha, steps)
+print(f'Final parameters: {w_final}, {b_final}')
