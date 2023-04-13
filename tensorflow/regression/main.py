@@ -25,11 +25,11 @@ def tf_linear_reg():
   print(f'{w}, {b}')
 
 def tf_log_reg():
-# should reshape??
+  # should reshape??
   x_train = np.array([0., 1., 2., 3., 4., 5.], dtype=np.float32).reshape(-1, 1)
   y_train = np.array([0, 0, 0, 1, 1, 1], dtype=np.float32).reshape(-1, 1)
 
-# x_train.shape will be (6,) -> (6, 1)
+  # x_train.shape will be (6,) -> (6, 1)
 
   print(f'{x_train.shape}, {y_train.shape}')
 
@@ -49,7 +49,23 @@ def tf_log_reg():
   set_w = np.array([[2]])
   set_b = np.array([-4.5])
   logistic_layer.set_weights([set_w, set_b])
+
+  # inference
   a1 = model.predict(x_train[0].reshape(1,1))
   print(a1)
+  print(a1.numpy())
+
+def test_tf_layer1():
+  x = np.array([[200., 17.],
+                [120., 5.],
+                [425., 20.],
+                [212., 18.]])
+  y = np.array([1, 0, 0, 1])
+  l1 = tf.keras.layers.Dense(units=3, activation='sigmoid') 
+  l2 = tf.keras.layers.Dense(units=1, activation='sigmoid') 
+  model = tf.keras.Sequential([l1, l2])
 
 tf_log_reg()
+
+# tf.Tensor is a data type
+#tf.Tensor([[0.2, 0.7, 0.3]], shape=(1, 3), dtype=float32)
