@@ -1,0 +1,20 @@
+Adam algorithm
+Adaptive Moment estimation
+
+dynamic learning rate
+doesn't use single global learning rate
+w[1] = w[1] - alpha[1]*dj_dw[j]
+
+If w[j](or b) keeps moving in same direction, increase alpha[j] (moving faster)
+If w[j](or b) keeps ascillating, reduce alpha[j] (moving slower)
+
+
+Additional Layer Types
+By now, used dense layer.
+futhermore ?
+
+Convolutional Layer
+Each neuron only looks at part of the previous layer's inputs.
+why?
+- faster computation
+- need less training data(less prone to overfitting)

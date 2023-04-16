@@ -1,0 +1,51 @@
+softamx regression
+---
+vs logistic regression
+y=0 or 1
+a1 = p(y=1|x) = 0.7
+a2 = 1-a1 = 0.3 = p(y=0|x)
+
+if y=1, 2, 3, 4
+a1 = p(y=1|x)
+a2 = p(y=2|x)
+a3 = p(y=3|x)
+a4 = p(y=4|x)
+a1+a2+a3+a4 should be 1
+
+N possible ouputs
+z[j] = dot(w[j], x) + b[j]
+a[j] = exp(z[j]) / sum(1..N)(exp(z[j])
+
+
+Cost
+---
+BinaryCrossEntropy is used in logistic regression.
+
+Loss(a[1]...a[N])
+-log(a[1]) if y=1
+-log(a[2]) if y=2
+...
+-log(a[n]) if y=n
+
+so, loss = -log(a[j]) if y=j
+
+: SparseCategoricalCrossEntropy
+
+Numerical Roundoff Errors in python
+https://www.tensorflow.org/api_docs/python/tf/keras/losses/BinaryCrossentropy
+https://www.tensorflow.org/api_docs/python/tf/keras/losses/SparseCategoricalCrossentropy
+https://en.wikipedia.org/wiki/Logit
+
+
+Multiple label ouputs
+---
+Let's imaagine a picture including a car, bus, and a pedestrian.
+Is there a car?
+Is there a bus?
+Is there a pedestrian?
+y_target will be [1, 0, 1] or [0, 1, 1] and so on.
+
+Multi-label classification
+can use
+sigmoid activation fucntion
+and output vector, in this example (3,)
