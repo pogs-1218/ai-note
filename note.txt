@@ -1,0 +1,127 @@
+# ai-note
+
+
+Debugging a learning algorithm
+---
+Get more training examples -> high variance
+try smaller set fo features -> high variance
+try getting additional features -> high bias
+adding polynomial features -> high bias
+decreasing lambda(regularization term) -> high bias
+increasing lambda(regularization term) -> high variance
+What do you try next?
+
+
+Evaluate a model
+---
+evaluate a performance
+
+Split the data set
+70% training set
+30% test set
+
+Training is done, then, compute the test error with test set.
+In this case, no regularization.
+
+Model selection
+---
+first-order polynomial
+f = w1x + b
+secod-order polynomial
+f = w1x + w2x^2 + b
+...
+
+which one is the loweset cost value(J)
+
+### Training/cross validation/test set
+60% training set
+20% cross validation
+20% test set
+
+How to use cross validation set?
+why?
+
+While model selection
+Evaluate the parameter(w, b) in the validation set.
+
+
+Bias and variance
+---
+High bias(underfit)
+Jtrain is high and Jcv is high also.
+
+High variance(overfit)
+Jtrain is low but Jcv is high.
+
+Regularization
+large lambda -> underfit
+small lambda -> overfit
+
+Baseline level of performance
+---
+i.e) speech recognition example
+human level performance: 10.6%
+training error: 10.8%
+cross validation error: 14.8%
+
+
+baseline performance ~ training error
+bias related.
+training error ~ cross validation error
+variance related.
+
+
+The bias variance tradeoff
+---
+simple model <-----> complex model
+(high bias)          (high variance)
+
+
+Large neural networks are low bias machines.
+repeat{
+check bias in train set -> no -> bigger network
+check variance in cv set -> no -> more data
+}
+
+Iterative loop of ML development
+---
+repeat{
+choose architecture(model, data, etc)
+-> train model
+-> diagnostics(bias, variance, error analysis)
+}
+
+Error analysis
+Manually examine the failed examples.
+categorized them.
+
+
+Add data
+
+Data augmentation
+: modifying an existing training examples to create a new training example.
+
+Transfer learning
+---
+Use parameters pretrained in neural network with same type.(images, audio..)
+Further train(fine tune) the network on your own data
+
+
+Full cycle of a machine learning project
+What steps?!
+i.e) speech recognition 
+Scope project -> 
+repeat(
+Collect data -> Train model ->
+Deploy in production
+)
+
+Define project -> Define and collect data -> 
+Training, error analysys & iter improve ->
+
+Deployment
+Inference server includes ML model
+Mobile app(client) API call to Inference server
+Inference server response to the client.
+
+
