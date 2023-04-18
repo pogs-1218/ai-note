@@ -125,3 +125,89 @@ Mobile app(client) API call to Inference server
 Inference server response to the client.
 
 
+skewed dataset
+---
+precision and recall
+
+
+Decision Tree Model
+---
+Create a hirarchy tree including each feature.
+A lot of decision tree can be created.
+how to choose it?
+1. How to choose a root node?
+2. What feature next??
+
+
+Decision 1. How to choose what feature to split on at each node?
+Maximize purity
+
+Decision 2. When do you stop splitting?
+When a node is 100% one class
+When splitting a node will result int the tree exceeding a maximum depth
+When improvements in pruty score are below a threshold
+
+Measuring purity
+---
+Entropy as a measure of impurity
+so, how to use this entropy to make a decision tree?
+
+hmm, it is a binary search tree.
+create a child node by using recursion.
+
+Information Gain
+---
+
+One-hot encoding
+---
+Multiple, over two, possible values.
+
+Continuous valued features
+---
+
+Regression with Decision Trees
+---
+
+Multiple decision trees
+---
+Trees are highly sensitive to small changes of the data
+
+Tree ensemble
+---
+Sampling with replacement
+
+Random forest algorithm
+---
+Tree ensemble algorithm
+Generating a tree sample(sampling with replacement)
+train a decision tree on new dataset
+
+Will make different dicisiont trees
+
+Randomizing the feature choice
+pick a random subset of k<n features,
+allow the algorithm to only choose from that subset of features.
+
+XGBoost
+---
+vs random forest
+: not a same probability(1/m)
+: pick misclassified dataset from previously trained trees
+: focus on smaller part
+
+eXtreme Gradient Boosting
+
+When to use decisinon tress?
+vs neural networks
+
+Decision tree and Tree ensembles
+works well on tabular(structured) data
+not recommended for unstructured data(images, audio, text)
+fast
+small decision tress may be human interpretable
+
+Neural networks
+works well on all types of data, including tabular and unstructured data
+may be slower than a decision tree
+works with transfer learning(can use pre-trained parameters)
+multiple models working together
