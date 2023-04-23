@@ -1,0 +1,51 @@
+Don't have target labels
+
+Clustering
+make groups
+
+Applications of clustering
+- Grouping similar news
+- Market segmentation
+- DNA analysis
+- Astronomical data analysis
+
+Clustering algorithm
+---
+K-means
+1. Randomly choose two points(cluster centroids)
+2. Assign every points to its closest centroids
+3. Recompute the centroids 
+4. repeat 2 ~ 3
+
+Algorithm
+Randomly initialize K cluster centroids [mu[0], mu[1], ... mu[k-1]]
+Repeat {
+# Assign ponts to cluster centroids
+  for i = 1 to m
+    c[i] = index(1tok) of cluster centroids closest to x[i]
+    # use vector norm
+# Move cluster centroids
+  for k=1 to K
+    mu[k] = average(mean) of points assigned to cluster k
+}
+
+Optimization
+Objective
+J = (1/m)*(sum(distance(x[i], m[c[i]])**2))
+
+Initializing K-means
+Coose K < m
+Randomly pick K training examples
+Set mu[0],...,mu[k-1] equal to these K examples
+
+Proper intializing and choosing cluster centroids is important.
+In order to find a good centroids,choose centroids randomly but with calculating the cost function in a loop.
+Pick the best centroids!
+
+Right value of K?
+2 or 4? how many?
+
+Elbow method
+- Calculate cost functions on each number of clusters.
+
+
