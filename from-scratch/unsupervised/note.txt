@@ -48,4 +48,49 @@ Right value of K?
 Elbow method
 - Calculate cost functions on each number of clusters.
 
+Anomaly detection
+---
+Finding unusual events
+
+Is x_test(new dataset) anomalous?
+Density estimation
+probability of x being seen in dataset
+
+Gaussian(normal) distribution
+---
+mean(mu) and variance(sigma squared)
+Probability of x is determined by a Gaussian with mean, variance
+mu = avg(X) = (1/m)*sum(x[i])
+sigma_squared = (1/m)*sum((x[i]-mu)**2)
+-> by now, x is single number(1 feature)
+  -> how about multipl feature, more than 1?
+
+Abnomaly detection algorithm
+---
+X = np.array((m, n))
+p(X) = p(x[1];mu[1],sigma[1]**2) * p(x[2];mu[2],sigma[2]**2) *...* p(x[n];mu[n],sigma[n]**2)
+
+Algorithm evalutation
+- Fit model on training set
+- On a cross validation/text example x, predict
+
+
+Anomaly detection vs supervised learning
+when to use?
+Anomaly detection
+- very small number of positive examples(y=1)
+- large number of negative examples(y=0)
+- many different types
+- unseen(new) positive data for future
+
+supervised learning
+- large number of positive and negative examples.
+- seen dataset for future
+
+
+Choosing what features to use
+- if Non-gaussian features
+ : Convert dataset to satifsfy Gaussian!
+
+Error analysis for anomaly detection
 
