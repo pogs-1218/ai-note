@@ -94,3 +94,34 @@ Choosing what features to use
 
 Error analysis for anomaly detection
 
+
+Recommendation
+---
+It is similar with a linear regression
+i, row, ie) movie
+j, column ie) users
+np.dot(w[j], x[i]) + b[j]
+
+Collaborative filtering algorithm
+---
+learn w, b and as well as learn x(feature!)
+w, b, and x are parameters
+together!!
+what the???
+ref:
+https://realpython.com/build-recommendation-engine-collaborative-filtering/
+https://developers.google.com/machine-learning/recommendation/collaborative/basics?hl=ko
+
+binary labels
+---
+generalitive of collaborative filtering..?
+1, 0, ?
+action = {1, 0, ?}
+
+Predict that the probability of y[i,j] = 1 is given by g(w[j]x[i]+b[j])
+
+Mean normalization
+---
+hmm...
+
+Have to know GradientTape of tensorflow. (what in pytorch?)
