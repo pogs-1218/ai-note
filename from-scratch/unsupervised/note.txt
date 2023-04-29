@@ -125,3 +125,97 @@ Mean normalization
 hmm...
 
 Have to know GradientTape of tensorflow. (what in pytorch?)
+
+
+Collaborate filtering vs Content-based filtering
+---
+Collaborate
+  based on rating of users gave similar ratings
+Content-based
+  based on feature of user and item
+
+User Features: age, gender, ...
+Item Features: year, genre, revies, ...
+
+Retreival & Ranking
+---
+To improve performance
+Also, has trade-off
+
+
+
+Reinforcement Learning
+---
+Use a reward function
+Why? 
+Some problems, like controlling a robot or a helicopter are not solved by a supervised learning.
+for example,
+   In order to use supervised learning,
+   input x -> output y
+   state s -> action a
+   Is ambiguous!
+
+Application
+- Controlling robots
+- Factory optimization
+- Financial trading
+- Playing games
+
+(state, action, reward(state), new state)
+Which reward is better?
+
+Return
+gamma=0.9(discount factor)
+R1 + gamma*R2 + gamma^2*R3 + gamma^3*R4 ... (until terminal state)
+
+Policy(pi)
+state(s) ->(pi) -> action(a)
+pi(s) = a
+maximize return!
+
+Q. How to choose a reward value and discount factor?
+
+MDP(Markov Decision Process)
+
+State action value function
+---
+Q(state, action)
+
+
+Bellman Equation
+---
+s: current state
+R(s) : reward of current state, immediate reward
+a: current action
+s': state you get to after tacking action a
+a': action that you take in state s'
+Q(s, a) = R(s)+gamma*max(Q(s', a'))
+
+
+Discrete vs Continous state
+---
+Continuous state can have a lot of states(state vector)
+
+Deep Reinforcement Learning
+---
+use neural network to compute each Return.
+Pick the action (a) that maximizes Q(s, a)
+
+Train data
+X and Y
+X includes state and action
+Y
+
+X[i] = (s[i], a[i])
+Y[i] = R(s[i]) + gamma*maximize a' of Q(s'[i], a')
+
+Think that Bellman equation with input and ouput in each layer.
+Which things are transfered.
+What is the Q function?
+Deep Q learning algorithm..?!
+
+Epsilon greedy policy
+---
+From, how to choose actions while still learning?
+Exploitation(greedy) and Exploration
+
