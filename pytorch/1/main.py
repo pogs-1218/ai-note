@@ -11,7 +11,6 @@ x_data = torch.tensor(data)
 print(type(x_data))
 print(x_data)
 
-
 np_data = np.array([[1, 2], [3, 4]])
 print(type(np_data))
 
@@ -55,3 +54,37 @@ t1 = torch.ones(3, 2)
 t2 = torch.zeros(3, 2)
 new_t = torch.cat([t1, t2], dim=1)
 print(f'{new_t}')
+
+x1 = torch.rand(3, 3)
+y1 = torch.rand(3, 2)
+z1 = x1.matmul(y1)
+print(f'matmul\n{z1}')
+#z2 = x1 * y1
+#print(f'elem-wise\n{z1}')
+
+z1_agg = z1.sum()
+print(f'agg: <{type(z1_agg)}>\n{z1_agg}')
+z1_agg_item = z1_agg.item()
+print(f'agg numpy: <{type(z1_agg_item)}>\n{z1_agg_item}')
+
+# tensor -> numpy
+# share memory
+t = torch.ones(5)
+print(f'{t}')
+n = t.numpy()
+print(f'{n}')
+t[1] = 0.
+print(f'{t}')
+print(f'{n}')
+
+
+# numpy -> tensor
+# share memory
+n = np.ones(5)
+t = torch.from_numpy(n)
+print(f'{t}')
+print(f'{n}')
+n[1] = 0.
+print(f'{t}')
+print(f'{n}')
+
