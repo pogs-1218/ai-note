@@ -41,12 +41,42 @@ https://scikit-learn.org/stable/_images/grid_search_cross_validation.png
 https://scikit-learn.org/stable/_images/grid_search_workflow.png
 https://scikit-learn.org/stable/modules/cross_validation.html#cross-validation
 
-stratified sampling
+* stratified sampling
 strata
 
+sklearn의 대표 인터페이스
+estimators:
+fit() API
+dataset을 받아서 파라미터를 설정함
 
-## Analyze
-### Take a look
+transformers:
+transform() API
+데이터를 변환
+
+predictors:
+predict() API
+predict수행
+
+이제 데이터에서 비어있는 값을 채워보자.
+sklearn문서에는 preprocessing다음에 imputer가 소개된다.
+순서가 영향이 있는걸까?
+
+sklearn의 imputer는 missing value를 채워주기위한 class
+여러 종류의 imputer가 있고 일단은 
+
+* categorical data를 encoding할 때, missing value에 대한 처리를 할 수 있다.
+* 그전에 missing value를 처리하고 수행하는 거랑 큰차이가 있을까?
+
+## Preprocessing
+### Concepts
+---
+#### Missing Values
+
+#### Standardization
+
+#### Categorical Features
+
+### Data Overview
 총 20640개의 데이터.
 ocean_proximity는 문자(object). 나머지는 숫자(float64) -> 문자열 처리는 어떻게 할 것인가?
 데이터 크기는 1.6MB -> 데이터 크기를 더 줄일수 있을까?
@@ -55,8 +85,22 @@ total_bedrooms는 20433개로, 빈값이 존재. -> 빈값에 대한 처리를 �
 total_rooms, total_bedrooms, median_income, population
 : 왼쪽으로 치우진 분포
 median_house_value, housing_media_age
-: 전반적으로 고른 분포이지만 가장 오른쪽에 튀어나온 값있음
+: 전반적으로 고른 분포이지만 가장 오른쪽에 튀어나온 값(outlier)있음
 
+
+
+## Appendix
+### mean, median, and mode
+
+### Standard Deviation
+
+### Normal(Gaussian) Distribution
+
+### Standard Normal Distribution
+
+
+## Analyze
+### Take a look
 
 ## sklearn
 파이프라인을 만들어서 붙이는게 확장성과 유지보수가 좋아보임
@@ -92,6 +136,31 @@ supervised learning만 그런걸까?
 ### normalization
 
 ### standardization
+- standard normal distribution을 일단 알아야함
+z-distribution
+
+- normal(gaussian) distribution
+
+
+- mean
+referred as 'average'
+전부더하고 개수로 나눠서 구함.
+outliers의 영향이 있음. 
+
+- mean, median, mode
+이 세개를 구분해서 알고있어야함
+각 상황에 따라 어떤값을 central tendency로 사용할지 정해짐.
+
+- standard deviation
+중심값(mean?)에서 얼마만큼의 다른 데이터가 있냐를 나타내는 정도!!
+sd가 높다면 mean값에서 먼데이터가 많다는 것이고 그래프에서는 넓은 종모양이됨
+sd가 작다면 mean값에서 가까운 데이터가 많다는 것이고 그래프에서는 작은 종모양이됨. 중앙밀집형
+
+
+- variance
+np.std**2 임.
+표현방식의 차이
+
 
 ### outlier
 
@@ -100,4 +169,8 @@ supervised learning만 그런걸까?
 
 
 ### evaluation of model
+
+
+## sklearn's preprocessing data
+link: https://scikit-learn.org/stable/modules/preprocessing.html
 
