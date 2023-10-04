@@ -84,8 +84,16 @@ if __name__ == '__main__':
   X_train, y_train = extract_labels(train_set)
   fill_missing_value(X_train)
   encode_categorical_fetures(X_train)
+
+  X_train['geo_pos'] = X_train['longitude'] / X_train['latitude']
+  X_train['population'] = np.log(X_train['population'])
+  X_train['total_rooms'] = np.log(X_train['total_rooms'])
+  X_train['total_bedrooms'] = np.log(X_train['total_bedrooms'])
+  X_train['households'] = np.log(X_train['households'])
+  X_train['median_income'] = np.log(X_train['median_income'])
+
   normalization(X_train)
 
-  X_train['population'] = np.log(X_train['population'])
-  # X_train.hist(bins=50, figsize=(30, 10))
-  # plt.show()
+  X_train.hist(bins=50, figsize=(30, 10))
+  plt.show()
+

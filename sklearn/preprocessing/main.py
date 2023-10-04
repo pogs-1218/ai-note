@@ -1,6 +1,14 @@
 import numpy as np
 from sklearn import preprocessing
+from sklearn.preprocessing import FunctionTransformer
+from sklearn.pipeline import Pipeline, make_pipeline
+from sklearn.compose import ColumnTransformer
 
+## missing values
+
+
+
+## categorical features
 categorical_features = [['male', 'kor'],['female', 'us'], ['male', 'uk']]
 test_features = [['male', 'us']]
 
@@ -39,6 +47,24 @@ def standard_scale():
   out = scaler.fit_transform(data)
   print(out)
 
+## transformation
+def test_make_pipeline():
+  data = np.arange(1, 10)
+  p = Pipeline([('log', FunctionTransformer(np.log, inverse_func=np.exp))])
+  out = p.fit_transform(data)
+  print(out[7:])
+  print(np.log(8), np.log(9))
+  print(p.inverse_transform(out))
+
+  p = make_pipeline(FunctionTransformer(np.log, inverse_func=np.exp))
+
+def test_column_trans():
+  data = {}
+  transformer = ColumnTransformer()
+  out = transformer.fit_transform(data)
+
+
 if __name__ == '__main__':
   # onehot_encode()
-  min_max_scale()
+  # min_max_scale()
+  test_make_pipeline()

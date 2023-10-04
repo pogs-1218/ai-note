@@ -1,2 +1,11 @@
 *.swp
 *.pth
+*.xlsx
+*.db
+*.tgz
+*.tar.gz
+*.tar
+*.zip
+*.sqlite
+.DS_Store
+.vscode
